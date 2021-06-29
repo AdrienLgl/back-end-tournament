@@ -7,13 +7,11 @@ public class TeamDTO {
     private Long id;
     private String name;
     private List<PlayerDTO> players;
-    private List<GameDTO> games;
 
-    public TeamDTO(Long id, String name, List<PlayerDTO> players, List<GameDTO> games) {
+    public TeamDTO(Long id, String name, List<PlayerDTO> players) {
         this.id = id;
         this.name = name;
         this.players = players;
-        this.games = games;
     }
 
     public Long getId() {
@@ -30,6 +28,14 @@ public class TeamDTO {
 
     public void setTeamName(String name) {
         this.name = name;
+    }
+
+    public List<PlayerDTO> getPlayerDTO() {
+        return players;
+    }
+
+    public void setPlayerDTO(List<PlayerDTO> players) {
+        this.players = players;
     }
 
 }

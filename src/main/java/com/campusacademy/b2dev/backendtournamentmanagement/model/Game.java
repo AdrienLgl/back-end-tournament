@@ -32,9 +32,6 @@ public class Game {
     @JoinColumn(name = "secondTeam_id", referencedColumnName = "id")
     private Team secondTeam;
 
-    @ManyToMany(mappedBy = "games")
-    private List<Team> teams;
-
     public Game() {
     }
 
@@ -68,14 +65,6 @@ public class Game {
 
     public void setSecondTeam(Team secondTeam) {
         this.secondTeam = secondTeam;
-    }
-
-    public List<Team> getTeams() {
-        return teams;
-    }
-
-    public void setTeams(List<Team> teams) {
-        this.teams = teams;
     }
 
 }

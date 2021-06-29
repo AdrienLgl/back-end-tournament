@@ -31,11 +31,6 @@ public class Team {
             @JoinColumn(name = "player_id") })
     private List<Player> players;
 
-    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
-    @JoinTable(name = "team_game", joinColumns = { @JoinColumn(name = "team_id") }, inverseJoinColumns = {
-            @JoinColumn(name = "game_id") })
-    private List<Game> games;
-
     public Team() {
     }
 
@@ -61,14 +56,6 @@ public class Team {
 
     public void setPlayers(List<Player> players) {
         this.players = players;
-    }
-
-    public List<Game> getGames() {
-        return games;
-    }
-
-    public void setGames(List<Game> games) {
-        this.games = games;
     }
 
 }
