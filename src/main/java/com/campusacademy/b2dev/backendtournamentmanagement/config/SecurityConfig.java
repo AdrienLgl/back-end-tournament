@@ -22,9 +22,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("visitor").password(this.passwordEncoder.encode("test")).roles("VISITOR")
-                .and().withUser("user").password(this.passwordEncoder.encode("test")).authorities("ROLE_USER").and()
-                .withUser("admin").password(this.passwordEncoder.encode("test")).roles("USER", "ADMIN");
+        auth.inMemoryAuthentication().withUser("visiteur").password(this.passwordEncoder.encode("root"))
+                .roles("VISITOR").and().withUser("organisateur").password(this.passwordEncoder.encode("root"))
+                .roles("ADMIN");
     }
 
     @Override
@@ -33,7 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .invalidateHttpSession(true).and().authorizeRequests()
                 .antMatchers("/login", "/swagger-resources/**", "/swagger-ui/**", "/v2/api-docs", "/webjars/**")
                 .permitAll().antMatchers(HttpMethod.PUT).hasAnyAuthority("ROLE_ADMIN").antMatchers(HttpMethod.POST)
-                .hasRole("ADMIN").antMatchers(HttpMethod.DELETE, "/players/**").hasAnyRole("USER", "ADMIN")
+                .hasRole("ADMIN").antMatchers(HttpMethod.DELETE, "/players/**").hasAnyRole("VISITOR", "ADMIN")
                 .antMatchers(HttpMethod.DELETE).hasAnyRole("ADMIN").anyRequest().authenticated();
     }
 
