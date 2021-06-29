@@ -26,7 +26,7 @@ public class Team {
     @Column(name = "team_name", nullable = false, length = 100)
     private String teamName;
 
-    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
+    @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(name = "team_player", joinColumns = { @JoinColumn(name = "team_id") }, inverseJoinColumns = {
             @JoinColumn(name = "player_id") })
     private List<Player> players;

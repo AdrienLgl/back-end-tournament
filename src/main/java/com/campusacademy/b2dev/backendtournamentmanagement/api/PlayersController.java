@@ -6,14 +6,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.swagger.models.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import com.campusacademy.b2dev.backendtournamentmanagement.api.model.PlayerDTO;
 import com.campusacademy.b2dev.backendtournamentmanagement.model.Player;
@@ -51,7 +48,6 @@ public class PlayersController {
     }
 
     @PutMapping(path = "{id}")
-    // /players/{id}
     public ResponseEntity<PlayerDTO> update(@PathVariable Long id, @RequestBody PlayerDTO playerDTO) {
         Optional<Player> playerOptional = this.playerRepository.findById(id);
         if (playerOptional.isEmpty()) {
