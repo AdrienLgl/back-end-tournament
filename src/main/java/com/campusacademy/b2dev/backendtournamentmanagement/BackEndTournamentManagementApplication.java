@@ -10,4 +10,8 @@ public class BackEndTournamentManagementApplication {
 		SpringApplication.run(BackEndTournamentManagementApplication.class, args);
 	}
 
+	public BackEndTournamentManagementApplication() {
+
+	}
+
 }
