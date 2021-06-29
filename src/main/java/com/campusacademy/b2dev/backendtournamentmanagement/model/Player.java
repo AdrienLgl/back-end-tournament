@@ -1,10 +1,13 @@
 package com.campusacademy.b2dev.backendtournamentmanagement.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -19,8 +22,8 @@ public class Player {
     @Column(nullable = false)
     private String name;
 
-    @OneToOne(mappedBy = "players")
-    private Team team;
+    @ManyToMany(mappedBy = "players")
+    private List<Team> teams;
 
     public Player() {
     }
@@ -41,11 +44,4 @@ public class Player {
         this.name = playerName;
     }
 
-    public Team getPlayerTeam() {
-        return team;
-    }
-
-    public void setPlayerTeam(Team team) {
-        this.team = team;
-    }
 }

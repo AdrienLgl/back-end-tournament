@@ -26,7 +26,7 @@ public class Team {
     @Column(name = "team_name", nullable = false, length = 100)
     private String name;
 
-    @OneToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
+    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
     @JoinTable(name = "team_player", joinColumns = { @JoinColumn(name = "team_id") }, inverseJoinColumns = {
             @JoinColumn(name = "player_id") })
     private List<Player> players;
@@ -35,14 +35,6 @@ public class Team {
     @JoinTable(name = "team_game", joinColumns = { @JoinColumn(name = "team_id") }, inverseJoinColumns = {
             @JoinColumn(name = "game_id") })
     private List<Game> games;
-
-    @OneToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
-    @JoinColumn(name = "firstTeam_id", referencedColumnName = "id")
-    private Team firstTeam;
-
-    @OneToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
-    @JoinColumn(name = "secondTeam_id", referencedColumnName = "id")
-    private Team secondTeam;
 
     public Team() {
     }

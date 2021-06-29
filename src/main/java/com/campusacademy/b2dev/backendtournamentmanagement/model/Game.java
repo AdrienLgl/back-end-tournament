@@ -2,11 +2,13 @@ package com.campusacademy.b2dev.backendtournamentmanagement.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -22,13 +24,15 @@ public class Game {
     @Column(name = "name", nullable = false, length = 100)
     private String name;
 
-    @OneToOne(mappedBy = "firstTeam")
+    @OneToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
+    @JoinColumn(name = "firstTeam_id", referencedColumnName = "id")
     private Team firstTeam;
 
-    @OneToOne(mappedBy = "secondTeam")
+    @OneToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
+    @JoinColumn(name = "secondTeam_id", referencedColumnName = "id")
     private Team secondTeam;
 
-    @ManyToMany(mappedBy = "game")
+    @ManyToMany(mappedBy = "games")
     private List<Team> teams;
 
     public Game() {
