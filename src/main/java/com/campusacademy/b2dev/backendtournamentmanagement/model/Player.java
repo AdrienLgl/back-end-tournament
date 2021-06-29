@@ -21,9 +21,6 @@ public class Player {
     @Column(nullable = false)
     private String name;
 
-    @ManyToMany(mappedBy = "players")
-    private List<Team> teams;
-
     public Player() {
     }
 

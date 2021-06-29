@@ -9,8 +9,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TeamRepository extends JpaRepository<Team, Long> {
 
-    Optional<Team> getTeamByTeamName(String teamName);
+    Optional<Team> getTeamByTeamName(String name);
 
-    List<Team> getTeamsByTeamName(String teamName);
+    List<Team> getTeamsByTeamName(String name);
 
 }

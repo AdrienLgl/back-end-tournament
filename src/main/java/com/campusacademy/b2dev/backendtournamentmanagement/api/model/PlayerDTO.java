@@ -6,12 +6,9 @@ public class PlayerDTO {
 
     private String name;
 
-    private int nbTeams;
-
-    public PlayerDTO(Long id, String name, int nbTeams) {
+    public PlayerDTO(Long id, String name) {
         this.id = id;
         this.name = name;
-        this.nbTeams = nbTeams;
     }
 
     public Long getId() {
@@ -28,14 +25,6 @@ public class PlayerDTO {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getnbTeams() {
-        return nbTeams;
-    }
-
-    public void setnbTeams(int nbTeams) {
-        this.nbTeams = nbTeams;
     }
 
 }

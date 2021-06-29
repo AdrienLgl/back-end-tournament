@@ -24,9 +24,11 @@ public class TeamsController {
         this.teamRepository = teamRepository;
     }
 
-    @GetMapping
-    public ResponseEntity<List<TeamDTO>> getAll() {
-        return ResponseEntity.ok(this.teamRepository.findAll().stream().map(this::map).collect(Collectors.toList()));
-    }
+    // @GetMapping
+    // public ResponseEntity<List<TeamDTO>> getAll() {
+
+    // return
+    // ResponseEntity.ok(this.teamRepository.findAll().stream().map(this::map).collect(Collectors.toList()));
+    // }
 
 }

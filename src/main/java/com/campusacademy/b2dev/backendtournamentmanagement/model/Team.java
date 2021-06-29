@@ -24,7 +24,7 @@ public class Team {
     private Long id;
 
     @Column(name = "team_name", nullable = false, length = 100)
-    private String name;
+    private String teamName;
 
     @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
     @JoinTable(name = "team_player", joinColumns = { @JoinColumn(name = "team_id") }, inverseJoinColumns = {
@@ -48,11 +48,11 @@ public class Team {
     }
 
     public String getTeamName() {
-        return name;
+        return teamName;
     }
 
-    public void setTeamName(String teamName) {
-        this.name = teamName;
+    public void setTeamName(String name) {
+        this.teamName = name;
     }
 
     public List<Player> getPlayers() {
